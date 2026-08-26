@@ -4,6 +4,15 @@
    ============================================================ */
 
 const POSTS = [
+{
+    title: "Apple Introduces State-of-the-Art M6 and M5 Ultra Chips",
+    excerpt: "Apple officially debuted its next-generation M6 and M5 Ultra processors. The M6 represents Apple's first state-of-the-art 2-nanometer chip, packing a 12-core CPU, 12-core GPU, and up to 170GB/s of unified memory bandwidth into a design that scales AI workflows. Simultaneously, the powerhouse M5 Ultra introduces a pioneering quad-die architecture to deliver up to 512GB of unified memory and extreme local AI capabilities.",
+    date: "2026-08-27",
+    minutes: 7,
+    tags: ["react", "perf"],
+    url: "https://share.google/el4QqaTUVxEajfqJi"
+  },
+   
   {
     title: "The cost of a re-render",
     excerpt: "A re-render is cheap until it isn't. How to tell the difference with the Profiler, and why memoizing everything made my dashboard measurably slower.",
