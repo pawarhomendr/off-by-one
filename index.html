@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>off-by-one — notes from the hot path</title>
+<meta name="description" content="A blog about why software is slow for boring reasons: profiling, databases, and the unglamorous work of making things fast.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#writing">Skip to posts</a>
+
+<!-- ─────────────────────────  header  ───────────────────────── -->
+<header class="site-head">
+  <div class="shell head-inner">
+    <a class="mark" href="#top">
+      off-by-one<span class="caret" aria-hidden="true"></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#writing">Writing</a>
+      <a href="#about">About</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
+
+    <div class="head-tools">
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="Switch to dark theme">
+        <svg class="ico ico-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.9 1.9M16.8 16.8l1.9 1.9M18.7 5.3l-1.9 1.9M7.2 16.8l-1.9 1.9"></path>
+        </svg>
+        <svg class="ico ico-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"></path>
+        </svg>
+      </button>
+
+      <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ────────────────────────  hero  ──────────────────────── -->
+  <section class="hero shell">
+    <div class="hero-copy">
+      <p class="eyebrow reveal">// the premise</p>
+      <h1 class="reveal">Software is slow for<br><em>boring</em> reasons.</h1>
+      <p class="deck reveal">I write about finding them. Profilers, query plans, build caches — the
+        unglamorous middle of the stack where almost all the time actually goes.</p>
+      <div class="hero-acts reveal">
+        <a class="btn" href="#writing">Read the latest</a>
+        <a class="btn btn-ghost" href="#subscribe">Get new posts</a>
+      </div>
+    </div>
+
+    <figure class="code-card reveal">
+      <figcaption class="code-head">
+        <span class="file">why.js</span>
+        <span class="lang">js</span>
+      </figcaption>
+<pre class="code"><code><span class="c-com">// Nine years of debugging, compressed.</span>
+<span class="c-key">function</span> <span class="c-fn">why</span>(software) {
+  <span class="c-key">const</span> costs = software.<span class="c-fn">profile</span>().<span class="c-fn">sort</span>(byCost);
+
+  <span class="c-com">// It is never the clever part.</span>
+  <span class="c-key">return</span> costs.<span class="c-fn">at</span>(<span class="c-num">0</span>);
+}</code></pre>
+    </figure>
+  </section>
+
+  <!-- ────────────────────────  writing  ──────────────────────── -->
+  <section class="writing shell" id="writing">
+    <div class="sec-head">
+      <p class="eyebrow">// writing</p>
+      <p class="sec-note"><span id="count">7</span> posts</p>
+    </div>
+
+    <div class="filters">
+      <div class="search">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path>
+        </svg>
+        <label class="sr-only" for="search">Search posts</label>
+        <input id="search" type="search" placeholder="Search titles and tags" autocomplete="off">
+      </div>
+      <div class="tags" id="tags" role="group" aria-label="Filter by tag"></div>
+    </div>
+
+    <ol class="posts" id="posts"></ol>
+
+    <p class="empty" id="empty" hidden>
+      Nothing matches that. <button class="link-btn" type="button" id="clear">Clear the filters</button> to see all 7 posts.
+    </p>
+
+    <noscript>
+      <p class="empty">Posts are rendered with JavaScript. Turn it on, or open <code>script.js</code> to read the list.</p>
+    </noscript>
+  </section>
+
+  <!-- ────────────────────────  about  ──────────────────────── -->
+  <section class="about shell" id="about">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">// about</p>
+        <h2>Hi, I'm hp.</h2>
+        <p class="prose">I build backends and spend most of my week looking at things that should be
+          faster than they are. This blog is where the findings land — usually a graph, a fix, and the
+          embarrassing assumption I held before measuring.</p>
+        <p class="prose">Everything here is written from a real incident or a real pull request. If a
+          post claims a number, I ran it.</p>
+        <ul class="links">
+          <li><a href="homendrpawar">GitHub</a></li>
+          <li><a href="gdg.com">Mastodon</a></li>
+          <li><a href="google.com">RSS</a></li>
+          <li><a href="writerhomendr@gmail.com">writerhomendr@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="subscribe" id="subscribe">
+        <p class="eyebrow">// subscribe</p>
+        <h3>One post, every other Tuesday.</h3>
+        <p class="prose small">No course, no funnel. Unsubscribe in one click.</p>
+        <form class="sub-form" id="sub-form" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="shell foot-inner">
+    <p class="mono">off-by-one — built by hand, 2026</p>
+    <p class="mono dim">Named after the only bug I still make.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
