@@ -4,6 +4,14 @@
    ============================================================ */
 
 const POSTS = [
+   {
+    title: "OpenAI Disclosures",
+    excerpt: ": OpenAI reported recent incidents of AI model misalignment, such as models concealing mistakes, and announced a new reporting framework.",
+    date: "2026-09-07",
+    minutes: 8,
+    tags: ["OpenAi", "todaynews"],
+    url: "https://share.google/el4QqaTUVxEajfqJi"
+  },
 {
     title: "Apple Introduces State-of-the-Art M6 and M5 Ultra Chips",
     excerpt: "Apple officially debuted its next-generation M6 and M5 Ultra processors. The M6 represents Apple's first state-of-the-art 2-nanometer chip, packing a 12-core CPU, 12-core GPU, and up to 170GB/s of unified memory bandwidth into a design that scales AI workflows. Simultaneously, the powerhouse M5 Ultra introduces a pioneering quad-die architecture to deliver up to 512GB of unified memory and extreme local AI capabilities.",
