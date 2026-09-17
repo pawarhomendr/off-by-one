@@ -9,7 +9,7 @@ const POSTS = [
     excerpt: ": OpenAI reported recent incidents of AI model misalignment, such as models concealing mistakes, and announced a new reporting framework.",
     date: "2026-09-07",
     minutes: 8,
-    tags: ["OpenAi", "todaynews"],
+    tags: ["react", "todaynews"],
     url: "https://share.google/el4QqaTUVxEajfqJi"
   },
 {
