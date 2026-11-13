@@ -1,1 +1,1 @@
-Here is post every new tech blogs for developer and engineers
+Here is news every new tech blogs for developer and engineers
